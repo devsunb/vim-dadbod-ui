@@ -145,6 +145,10 @@ let s:oracle = {
       \   'filetype': 'plsql',
       \ }
 
+let s:mongodb = {
+      \ 'filetype': 'javascript',
+      \ }
+
 if get(g:, 'dbext_default_ORA_bin') == 'sql'
   let s:oracle.parse_results = {results, min_len -> s:results_parser(s:strip_quotes(results[13:-5]), ',', min_len)}
   let s:oracle.parse_virtual_results = {results, min_len -> s:results_parser(s:strip_quotes(results[13:-4]), ',', min_len)}
@@ -179,6 +183,8 @@ let s:schemas = {
       \ 'mysql': s:mysql,
       \ 'oracle': s:oracle,
       \ 'bigquery': s:bigquery,
+      \ 'mongodb': s:mongodb,
+      \ 'mongodb+srv': s:mongodb,
       \ }
 
 if !exists('g:db_adapter_postgres')
